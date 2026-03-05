@@ -6,6 +6,19 @@ const LoadData = () => {
     });
 };
 
+// Theme
+function toggleTheme() {
+  console.log('theme');
+  const html = document.documentElement;
+  const currentTheme = html.getAttribute("data-theme");
+  const newTheme = currentTheme === "dark" ? "light" : "dark";
+
+  html.setAttribute("data-theme", newTheme);
+
+  // // Optional: Save preference so it stays after refresh
+  // localStorage.setItem("theme", newTheme);
+}
+
 function pronounceWord(word) {
   const utterance = new SpeechSynthesisUtterance(word);
   utterance.lang = "en-EN"; // English
@@ -71,7 +84,6 @@ const DisplayWordCard = (words) => {
   }
 
   words.forEach((element) => {
-    
     const div = document.createElement("div");
     div.innerHTML = `
         <section  class="bg-gray-900 p-4 py-10  rounded-lg text-center shadow-lg">

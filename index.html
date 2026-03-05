@@ -52,6 +52,11 @@
                 <li><a class="btn btn-outline "><i class="fa-solid fa-question"></i>FAQ</a></li>
                 <li><a class="btn btn-outline "><i class="fa-solid fa-book-open"></i>Learn</a></li>
                 <li><a class="btn btn-outline "><i class="fa-solid fa-arrow-right-from-bracket"></i>LogOut</a></li>
+                <li>
+                    <a class="btn " onclick="toggleTheme()">
+                        <input type="checkbox" value="synthwave" class="toggle " />
+                    </a>
+                </li>
             </ul>
         </div>
 
@@ -86,10 +91,15 @@
 
         </div>
 
-        <div class="w-10/12 py-5 flex justify-center gap-1">
-            <input id="search-text" class="input " type="text" placeholder="Search Word.. ">
-            <button id="search-btn" class="btn btn-success ">Search </button>
+        <div class="w-10/12 mx-auto py-5 flex justify-center items-center gap-2">
+            <!-- Added w-full max-w-xs and input-bordered for visibility -->
+            <input id="search-text" type="text" placeholder="Search Word..."
+                class="input input-bordered w-full max-w-xs focus:outline-blue-500" />
+            <button id="search-btn" class="btn btn-success px-6 text-white">
+                Search
+            </button>
         </div>
+
 
         <div id="card-container"
             class="lg:w-10/12 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 bg-gray-800 mt-10 mx-auto p-6 rounded-md text-white">
@@ -153,8 +163,8 @@
 
 </body>
 
-<footer class="bg-gray-800 py-16 text-white">
-    
+<footer class="bg-gray-200 dark:bg-gray-800 text-gray-900 dark:text-white py-16 transition-colors">
+
     <section class="w-10/12 mx-auto flex flex-col md:flex-row lg:gap-100 gap-20 ">
 
         <div class="flex-1 space-y-3">
