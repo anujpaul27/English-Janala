@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>English Janala</title>
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@5" rel="stylesheet" type="text/css" />
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@5/themes.css" rel="stylesheet" type="text/css" />
+
+    <!-- font link  -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap"
+        rel="stylesheet">
+
+    <!-- Style sheet  -->
+    <link rel="stylesheet" href="style.css">
+    <!-- Font Awasome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+
+</head>
+
+<body class="">
+    <!-- Navbar -->
+    <nav class="navbar bg-base-100 shadow-sm">
+        <div class="navbar-start">
+            <div class="dropdown">
+                <div tabindex="0" role="button" class="btn btn-ghost lg:hidden">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24"
+                        stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M4 6h16M4 12h8m-8 6h16" />
+                    </svg>
+                </div>
+                <ul tabindex="-1"
+                    class="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow">
+                    <li><a class=" ">FAQ</a></li>
+                    <li><a class=" ">Learn</a></li>
+                    <li><a class=" ">LogOut</a></li>
+                </ul>
+            </div>
+            <div class="flex gap-2 ">
+                <h1 class="text-2xl ">English </h1>
+                <img src="./assets/logo.png" alt="">
+                <h1 class="text-2xl ">জানালা</h1>
+            </div>
+        </div>
+        <div class="navbar-end hidden lg:flex">
+            <ul class="menu menu-horizontal px-1 gap-2">
+                <li><a class="btn btn-outline "><i class="fa-solid fa-question"></i>FAQ</a></li>
+                <li><a class="btn btn-outline "><i class="fa-solid fa-book-open"></i>Learn</a></li>
+                <li><a class="btn btn-outline "><i class="fa-solid fa-arrow-right-from-bracket"></i>LogOut</a></li>
+            </ul>
+        </div>
+
+    </nav>
+
+    <header class="w-10/12 lg:mt-20 mx-auto flex flex-col-reverse md:flex-row items-center justify-center gap-8">
+        <div class="flex-1 lg:text-left text-center ">
+            <h1 class="text-3xl md:text-5xl font-bold my-3">
+                <span class="text-blue-400">English</span> is easy!!
+            </h1>
+            <p class="text-sm md:text-base text-gray-400">
+                আজ থেকেই আপনার ভাষা শেখার যাত্রা শুরু করুন। আপনি যদি নতুন হন অথবা আপনার দক্ষতা বাড়াতে চান, আমাদের
+                Interactive Lessons আপনাকে নিয়ে যাবে অন্য একটি Level এ
+            </p>
+            <div class="flex flex-col gap-3 my-3  ">
+                <input class="input input-sm " type="text" placeholder="Enter Your Name">
+                <input class="input input-sm " type="password" placeholder="..........">
+            </div>
+            <button class="btn btn-secondary ">Get Start</button>
+        </div>
+        <div class="flex-1">
+            <img src="/assets/hero-student.png" alt="Student learning" class="w-full h-auto">
+        </div>
+    </header>
+
+    <main>
+        <h1 class="text-3xl text-center  md:text-5xl font-bold my-3 lg:mt-20 my-10 ">
+            <span class="text-blue-400">Let's</span> Learn Vocabularies
+        </h1>
+
+        <div id="level-container" class="flex justify-center  gap-5 flex-wrap ">
+
+        </div>
+
+
+        <div id="card-container"
+            class="w-10/12 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 bg-gray-800 mt-10 mx-auto p-6 rounded-md text-white">
+
+            <section class="bg-gray-900 p-6 rounded-lg text-center shadow-lg col-span-3 py-20">
+                <h1 class="text-3xl font-bold">Eager</h1>
+                <p class="text-gray-400 my-2">Meaning / Pronunciation</p>
+                <h1 class="text-2xl text-blue-400">"আগ্রহী / ইগার"</h1>
+            </section>
+        </div>
+
+    </main>
+
+</body>
+
+<script src="script.js"></script>
+
+</html>
