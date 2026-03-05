@@ -6,6 +6,12 @@ const LoadData = () => {
     });
 };
 
+function pronounceWord(word) {
+  const utterance = new SpeechSynthesisUtterance(word);
+  utterance.lang = "en-EN"; // English
+  window.speechSynthesis.speak(utterance);
+}
+
 const DisplayBtn = (lessons) => {
   const LessonContainer = document.querySelector("#level-container");
   LessonContainer.innerHTML = "";
@@ -25,6 +31,7 @@ LoadData();
 
 // Load Data by lesson
 const LoadLessonData = (id) => {
+  setLoading(true);
   const url = `https://openapi.programming-hero.com/api/level/${id}`;
 
   fetch(url)
@@ -59,14 +66,12 @@ const DisplayWordCard = (words) => {
     </section>
     `;
     CardContainer.appendChild(NotFoundDiv);
+    setLoading(false);
     return;
   }
 
-  let count = 0;
   words.forEach((element) => {
-    if (count === 6) {
-      return;
-    }
+    
     const div = document.createElement("div");
     div.innerHTML = `
         <section  class="bg-gray-900 p-4 py-10  rounded-lg text-center shadow-lg">
@@ -75,18 +80,18 @@ const DisplayWordCard = (words) => {
                 <h1 class="text-xl text-blue-400">"${!element.meaning && "not found"} / ${element.pronunciation}"</h1>
 
                 <div class="flex justify-between gap-10 mt-5">
-                    <button >
+                    <button onClick="pronounceWord('${element.word}')" >
                         <i class="fa-regular fa-circle-play text-2xl hover:text-blue-500 cursor-pointer"></i>
                     </button>
                     <button onClick="InfoView(${element.id})" >
                         <i class="fa-solid fa-circle-info text-2xl hover:text-blue-500 cursor-pointer"></i>
                     </button>
-                </div>
+                </div>  
             </section>
         `;
     CardContainer.appendChild(div);
-    count++;
   });
+  setLoading(false);
 };
 
 const InfoView = async (id) => {
@@ -98,11 +103,10 @@ const InfoView = async (id) => {
 };
 
 // Show array of synoname
-const createElement = (ar) =>
-{
-    const create = ar.map(elm=> `<span class="btn"> ${elm} </span>`)
-    return create.join('');
-}
+const createElement = (ar) => {
+  const create = ar.map((elm) => `<span class="btn"> ${elm} </span>`);
+  return create.join("");
+};
 
 const DisplayCardDetails = (data) => {
   const show = document.getElementById("my_modal_2");
@@ -130,6 +134,34 @@ const DisplayCardDetails = (data) => {
   `;
 };
 
+// loading
+const setLoading = (status) => {
+  if (status) {
+    document.getElementById("card-container").classList.add("hidden");
+    document.getElementById("loading").classList.remove("hidden");
+  } else {
+    document.getElementById("card-container").classList.remove("hidden");
+    document.getElementById("loading").classList.add("hidden");
+  }
+};
 
+// fetch all word
+const fetchAllWord = async () => {
+  let res = await fetch("https://openapi.programming-hero.com/api/words/all");
+  let data = await res.json();
+  console.log(data.data);
+};
 
+document.getElementById("search-btn").addEventListener("click", async (e) => {
+  const inputText = document.getElementById("search-text").value;
+  // console.log(inputText);
+  let res = await fetch("https://openapi.programming-hero.com/api/words/all");
+  let data = await res.json();
+  let allData = data.data;
 
+  const filterData = allData.filter((element) =>
+    element.word.toLowerCase().includes(inputText),
+  );
+
+  DisplayWordCard(filterData);
+});
